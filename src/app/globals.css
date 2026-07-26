@@ -2,25 +2,54 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #08173f;
+  --bta-blue-dark: #061b49;
+  --bta-blue-deeper: #021236;
+  --bta-blue: #0057ff;
+  --bta-blue-bright: #1d73ff;
+  --bta-turquoise: #18c4c7;
+  --bta-text: #08173f;
+  --bta-muted: #506178;
+  --bta-soft: #f5f8fc;
+  --bta-border: #d9e3f1;
+  --bta-radius: 1rem;
+  --bta-shadow: 0 10px 28px rgb(8 23 63 / 0.08);
+  --bta-container: 76rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "SFMono-Regular", Consolas, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Geist", "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+input {
+  outline-color: var(--bta-blue-bright);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgb(29 115 255 / 0.18);
+  color: var(--bta-blue-deeper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
