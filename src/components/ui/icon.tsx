@@ -82,6 +82,18 @@ export function Icon({ name, className = "size-6", title }: IconProps) {
           <path d="M6 11v4.5c1.8 1.7 10.2 1.7 12 0V11" {...common} />
         </>
       )}
+      {name === "diamond" && (
+        <>
+          <path d="M6.5 4h11L21 9l-9 11L3 9z" {...common} />
+          <path d="M3 9h18M8.5 4 12 20 15.5 4" {...common} />
+        </>
+      )}
+      {name === "globe" && (
+        <>
+          <circle cx="12" cy="12" r="9" {...common} />
+          <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" {...common} />
+        </>
+      )}
       {name === "video" && (
         <>
           <rect x="4" y="6" width="12" height="12" rx="2" {...common} />
@@ -139,10 +151,31 @@ export function Icon({ name, className = "size-6", title }: IconProps) {
           <path d="M6 20a6 6 0 0 1 12 0M18 5l2-2M6 5 4 3" {...common} />
         </>
       )}
+      {name === "network" && (
+        <>
+          <circle cx="6" cy="7" r="2.4" {...common} />
+          <circle cx="18" cy="7" r="2.4" {...common} />
+          <circle cx="12" cy="17" r="2.4" {...common} />
+          <path d="m8 8.5 3 6M16 8.5l-3 6M8.4 7h7.2" {...common} />
+        </>
+      )}
+      {name === "pencil" && (
+        <>
+          <path d="m4 16.5-.8 4.3 4.3-.8L19 8.5 15.5 5z" {...common} />
+          <path d="m14 6.5 3.5 3.5" {...common} />
+        </>
+      )}
       {name === "consulting" && (
         <>
           <rect x="4" y="5" width="16" height="12" rx="2" {...common} />
           <path d="M8 21h8M10 17v4M14 17v4M8 9h8M8 13h5" {...common} />
+        </>
+      )}
+      {name === "rocket" && (
+        <>
+          <path d="M13 4c3.2.4 5.6 2.8 6 6l-6.5 6.5-5-5z" {...common} />
+          <path d="M9 15 5.5 18.5M7.5 11.5 4 12l.5-3.5L8 5l3.5.5M12.5 16.5 12 20l3.5-.5L19 16l-.5-3.5" {...common} />
+          <circle cx="14.5" cy="8.5" r="1.5" {...common} />
         </>
       )}
       {name === "service" && (
