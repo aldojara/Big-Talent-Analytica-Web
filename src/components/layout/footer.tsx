@@ -12,13 +12,6 @@ const popularResources = [
   { label: "Casos de uso", href: "/casos-de-uso" },
 ];
 
-const socialLinks = [
-  { label: "TikTok", href: "/comunidad/tiktok", glyph: "music" },
-  { label: "YouTube", href: "/comunidad/youtube", glyph: "play" },
-  { label: "LinkedIn", href: "/comunidad/linkedin", glyph: "in" },
-  { label: "Email", href: `mailto:${siteConfig.contactEmail}`, glyph: "mail" },
-];
-
 export function Footer() {
   return (
     <footer className="bg-[var(--bta-blue-deeper)] text-white">
@@ -46,7 +39,7 @@ export function Footer() {
               negocios.
             </p>
             <div className="mt-4 flex gap-2.5">
-              {socialLinks.map((link) => (
+              {siteConfig.socialLinks.map((link) => (
                 <Link
                   className="flex size-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2"
                   href={link.href}

@@ -23,6 +23,12 @@ export function Icon({ name, className = "size-6", title }: IconProps) {
       role={title ? "img" : undefined}
       viewBox="0 0 24 24"
     >
+      {name === "arrow-right" && (
+        <>
+          <path d="M5 12h14" {...common} />
+          <path d="m13 6 6 6-6 6" {...common} />
+        </>
+      )}
       {name === "talent" && (
         <>
           <circle cx="8" cy="8" r="3" {...common} />
