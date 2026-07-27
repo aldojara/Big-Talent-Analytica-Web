@@ -21,10 +21,11 @@ export function RadarSection() {
               transformación digital, con mi análisis y perspectiva.
             </p>
             <Link
-              className="mt-5 inline-flex text-xs font-bold text-[var(--bta-blue)] hover:text-[var(--bta-blue-deeper)] focus-visible:outline focus-visible:outline-2"
+              className="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-[var(--bta-blue)] hover:text-[var(--bta-blue-deeper)] focus-visible:outline focus-visible:outline-2"
               href="/ia-tecnologia"
             >
-              Ver todas las novedades <span aria-hidden="true">&nbsp;-&gt;</span>
+              Ver todas las novedades
+              <Icon className="size-3.5" name="arrow-right" />
             </Link>
           </div>
 

@@ -1,6 +1,7 @@
 export type IconName =
   | "analytics"
   | "ai"
+  | "arrow-right"
   | "automation"
   | "briefcase"
   | "calendar"

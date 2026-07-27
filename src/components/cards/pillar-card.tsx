@@ -28,8 +28,9 @@ export function PillarCard({ pillar }: { pillar: Pillar }) {
       <p className="mt-2 max-w-[18rem] flex-1 break-words text-[0.72rem] leading-[1.55] text-[var(--bta-muted)] sm:max-w-none">
         {pillar.description}
       </p>
-      <span className="mt-3 text-xs font-semibold text-[var(--bta-blue)]">
-        Ver más <span aria-hidden="true">-&gt;</span>
+      <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--bta-blue)]">
+        Ver más
+        <Icon className="size-3.5" name="arrow-right" />
       </span>
     </Link>
   );

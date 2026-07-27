@@ -33,7 +33,7 @@ export function EcosystemFlowSection() {
                     aria-hidden="true"
                     className="absolute -right-3 top-7 hidden text-blue-300 lg:block"
                   >
-                    -&gt;
+                    <Icon className="size-4" name="arrow-right" />
                   </span>
                 ) : null}
               </li>

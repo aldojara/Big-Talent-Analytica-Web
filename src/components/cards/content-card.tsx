@@ -30,10 +30,11 @@ export function ContentCard({ item }: { item: FeaturedContent }) {
           {item.description}
         </p>
         <Link
-          className="mt-3 inline-flex text-xs font-semibold text-[var(--bta-blue)] hover:text-[var(--bta-blue-deeper)] focus-visible:outline focus-visible:outline-2"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--bta-blue)] hover:text-[var(--bta-blue-deeper)] focus-visible:outline focus-visible:outline-2"
           href={item.href}
         >
-          {item.ctaLabel} <span aria-hidden="true">&nbsp;-&gt;</span>
+          {item.ctaLabel}
+          <Icon className="size-3.5" name="arrow-right" />
         </Link>
       </div>
     </article>

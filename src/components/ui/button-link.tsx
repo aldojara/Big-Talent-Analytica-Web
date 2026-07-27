@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { Icon } from "@/components/ui/icon";
+
 type ButtonLinkProps = {
   href: string;
   children: ReactNode;
@@ -31,7 +33,7 @@ export function ButtonLink({
       href={href}
     >
       {children}
-      <span aria-hidden="true">-&gt;</span>
+      <Icon className="size-3.5" name="arrow-right" />
     </Link>
   );
 }

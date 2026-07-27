@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { DomainCard } from "@/components/cards/domain-card";
 import { Container } from "@/components/layout/container";
+import { Icon } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { domains } from "@/data/home";
 
@@ -17,10 +18,11 @@ export function DomainsSection() {
         </div>
         <div className="mt-4 text-center">
           <Link
-            className="text-xs font-bold text-[var(--bta-blue)] hover:text-[var(--bta-blue-deeper)] focus-visible:outline focus-visible:outline-2"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--bta-blue)] hover:text-[var(--bta-blue-deeper)] focus-visible:outline focus-visible:outline-2"
             href="/dominios"
           >
-            Ver todos los dominios <span aria-hidden="true">-&gt;</span>
+            Ver todos los dominios
+            <Icon className="size-3.5" name="arrow-right" />
           </Link>
         </div>
       </Container>
