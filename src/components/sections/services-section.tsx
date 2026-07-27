@@ -7,7 +7,7 @@ import { services } from "@/data/home";
 
 export function ServicesSection() {
   return (
-    <section className="bg-white py-9 sm:py-10">
+    <section className="bg-white py-9 sm:py-10" id="servicios">
       <Container>
         <div className="grid gap-6 lg:grid-cols-[1fr_15rem] lg:items-end">
           <SectionHeading

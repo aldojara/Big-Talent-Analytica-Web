@@ -31,18 +31,6 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: "Casos de uso",
     href: "/casos-de-uso",
-    children: [
-      {
-        label: "Por área",
-        href: "/casos-de-uso/areas",
-        description: "Aplicaciones para marketing, ventas y operaciones.",
-      },
-      {
-        label: "Por tecnología",
-        href: "/casos-de-uso/tecnologias",
-        description: "IA generativa, analítica y automatización.",
-      },
-    ],
   },
   {
     label: "IA y Tecnología",
