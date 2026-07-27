@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useId, useState } from "react";
 
 import type { NavigationItem } from "@/config/navigation";
@@ -16,6 +17,7 @@ type MobileNavigationProps = {
 export function MobileNavigation({ items, cta }: MobileNavigationProps) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
+  const pathname = usePathname();
 
   const closeMenu = () => setOpen(false);
 
@@ -56,12 +58,15 @@ export function MobileNavigation({ items, cta }: MobileNavigationProps) {
       >
         <nav aria-label="Navegación móvil" className="mx-auto max-w-7xl px-4 py-5">
           <ul className="space-y-1">
-            {items.map((item) => (
+            {items.map((item) => {
+              const active = isNavigationItemActive(item, pathname);
+
+              return (
               <li key={item.href}>
                 <Link
-                  aria-current={item.active ? "page" : undefined}
+                  aria-current={active ? "page" : undefined}
                   className={`block rounded-xl px-4 py-3 text-base font-semibold focus-visible:outline focus-visible:outline-2 ${
-                    item.active
+                    active
                       ? "bg-blue-50 text-[var(--bta-blue)]"
                       : "text-[var(--bta-text)] hover:bg-blue-50"
                   }`}
@@ -86,7 +91,8 @@ export function MobileNavigation({ items, cta }: MobileNavigationProps) {
                   </ul>
                 ) : null}
               </li>
-            ))}
+              );
+            })}
           </ul>
           <Link
             className="mt-5 flex min-h-12 items-center justify-center rounded-xl bg-[var(--bta-blue)] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_32px_rgb(0_87_255/0.24)] focus-visible:outline focus-visible:outline-2"
@@ -98,5 +104,17 @@ export function MobileNavigation({ items, cta }: MobileNavigationProps) {
         </nav>
       </div>
     </div>
+  );
+}
+
+function isNavigationItemActive(item: NavigationItem, pathname: string) {
+  if (item.href === "/") {
+    return pathname === "/";
+  }
+
+  return (
+    pathname === item.href ||
+    pathname.startsWith(`${item.href}/`) ||
+    Boolean(item.children?.some((child) => pathname.startsWith(child.href)))
   );
 }

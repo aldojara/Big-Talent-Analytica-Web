@@ -1,17 +1,25 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import type { NavigationItem } from "@/config/navigation";
 
 export function DesktopNavigation({ items }: { items: NavigationItem[] }) {
+  const pathname = usePathname();
+
   return (
     <nav aria-label="Navegación principal" className="hidden lg:block">
       <ul className="flex items-center gap-0.5 xl:gap-1">
-        {items.map((item) => (
+        {items.map((item) => {
+          const active = isNavigationItemActive(item, pathname);
+
+          return (
           <li className="group relative" key={item.href}>
             <Link
-              aria-current={item.active ? "page" : undefined}
+              aria-current={active ? "page" : undefined}
               className={`flex min-h-9 items-center gap-1 whitespace-nowrap rounded-lg px-1.5 text-[0.72rem] font-semibold transition focus-visible:outline focus-visible:outline-2 xl:px-2.5 xl:text-xs ${
-                item.active
+                active
                   ? "text-[var(--bta-blue)]"
                   : "text-[var(--bta-text)] hover:text-[var(--bta-blue)]"
               }`}
@@ -35,7 +43,7 @@ export function DesktopNavigation({ items }: { items: NavigationItem[] }) {
                 </svg>
               ) : null}
             </Link>
-            {item.active ? (
+            {active ? (
               <span
                 aria-hidden="true"
                 className="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-[var(--bta-blue)]"
@@ -63,8 +71,21 @@ export function DesktopNavigation({ items }: { items: NavigationItem[] }) {
               </div>
             ) : null}
           </li>
-        ))}
+          );
+        })}
       </ul>
     </nav>
+  );
+}
+
+function isNavigationItemActive(item: NavigationItem, pathname: string) {
+  if (item.href === "/") {
+    return pathname === "/";
+  }
+
+  return (
+    pathname === item.href ||
+    pathname.startsWith(`${item.href}/`) ||
+    Boolean(item.children?.some((child) => pathname.startsWith(child.href)))
   );
 }

@@ -10,7 +10,7 @@ export type NavigationItem = {
 };
 
 export const mainNavigation: NavigationItem[] = [
-  { label: "Inicio", href: "/", active: true },
+  { label: "Inicio", href: "/" },
   { label: "Sobre mí", href: "/sobre-mi" },
   {
     label: "Talento",
