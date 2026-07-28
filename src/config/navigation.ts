@@ -1,4 +1,5 @@
 import type { IconName } from "@/types/content";
+import { aiTechnologyBasePath, aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
 import { useCaseCategoryNavItems } from "@/data/use-case-categories";
 
 export type NavigationItem = {
@@ -39,19 +40,8 @@ export const mainNavigation: NavigationItem[] = [
   },
   {
     label: "IA y Tecnología",
-    href: "/ia-tecnologia",
-    children: [
-      {
-        label: "Radar",
-        href: "/ia-tecnologia/radar",
-        description: "Tendencias, herramientas y señales del mercado.",
-      },
-      {
-        label: "Guías prácticas",
-        href: "/ia-tecnologia/guias",
-        description: "Marcos para aplicar IA con criterio.",
-      },
-    ],
+    href: aiTechnologyBasePath,
+    children: aiTechnologyNavItems,
   },
   {
     label: "Dominios",

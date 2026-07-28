@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Icon } from "@/components/ui/icon";
 import { mainNavigation } from "@/config/navigation";
+import { aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
 import { siteConfig } from "@/config/site";
 
 const popularResources = [
@@ -16,7 +17,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--bta-blue-deeper)] text-white">
       <Container className="py-9">
-        <div className="grid gap-8 border-b border-white/15 pb-8 md:grid-cols-[1.45fr_1.2fr_1fr_1fr]">
+        <div className="grid gap-8 border-b border-white/15 pb-8 md:grid-cols-[1.35fr_1fr_1.1fr_1fr_1fr]">
           <div>
             <Link className="inline-flex items-center gap-2.5" href="/">
               <span className="grid size-8 grid-cols-3 gap-0.5 text-[var(--bta-blue-bright)]">
@@ -72,6 +73,22 @@ export function Footer() {
             <h2 className="text-xs font-bold">Recursos populares</h2>
             <ul className="mt-3 space-y-1.5">
               {popularResources.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xs font-bold">IA y Tecnología</h2>
+            <ul className="mt-3 space-y-1.5">
+              {aiTechnologyNavItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"

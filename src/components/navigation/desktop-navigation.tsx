@@ -37,6 +37,7 @@ function DesktopNavigationItem({
   const hoverOpenedAtRef = useRef(0);
   const active = isNavigationItemActive(item, pathname);
   const isUseCasesMenu = item.href === "/casos-de-uso";
+  const isAiTechnologyMenu = item.href === "/ia-y-tecnologia";
 
   useEffect(() => {
     if (!open) {
@@ -177,6 +178,8 @@ function DesktopNavigationItem({
           className={`invisible absolute top-full z-40 translate-y-2 rounded-xl border border-[var(--bta-border)] bg-white opacity-0 shadow-[0_18px_48px_rgb(8_23_63/0.14)] transition ${
             isUseCasesMenu
               ? "left-1/2 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 p-3"
+              : isAiTechnologyMenu
+                ? "left-1/2 w-[min(520px,calc(100vw-2rem))] -translate-x-1/2 p-2.5"
               : "right-0 w-64 p-2"
           } ${
             open ? "visible translate-y-0 opacity-100" : ""
@@ -192,6 +195,12 @@ function DesktopNavigationItem({
               onNavigate={() => setOpen(false)}
               pathname={pathname}
             />
+          ) : isAiTechnologyMenu ? (
+            <AiTechnologyDropdown
+              items={item.children}
+              onNavigate={() => setOpen(false)}
+              pathname={pathname}
+            />
           ) : (
             <CompactDropdown
               items={item.children}
@@ -202,6 +211,51 @@ function DesktopNavigationItem({
         </div>
       ) : null}
     </li>
+  );
+}
+
+function AiTechnologyDropdown({
+  items,
+  pathname,
+  onNavigate,
+}: {
+  items: NonNullable<NavigationItem["children"]>;
+  pathname: string;
+  onNavigate: () => void;
+}) {
+  return (
+    <ul className="grid gap-1.5 md:grid-cols-2">
+      {items.map((child) => {
+        const childActive = isChildActive(child.href, pathname);
+
+        return (
+          <li key={child.href}>
+            <Link
+              aria-current={childActive ? "page" : undefined}
+              className={`flex min-h-14 gap-2.5 rounded-lg border p-2.5 transition focus-visible:outline focus-visible:outline-2 ${
+                childActive
+                  ? "border-blue-200 bg-blue-50 text-[var(--bta-blue)]"
+                  : "border-transparent text-[var(--bta-text)] hover:border-blue-100 hover:bg-blue-50"
+              }`}
+              href={child.href}
+              onClick={onNavigate}
+            >
+              <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-blue-50 text-[var(--bta-blue)]">
+                <Icon className="size-4" name={child.icon ?? "arrow-right"} />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[0.76rem] font-black leading-tight">
+                  {child.label}
+                </span>
+                <span className="mt-0.5 block text-[0.66rem] leading-3.5 text-[var(--bta-muted)]">
+                  {child.description}
+                </span>
+              </span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
