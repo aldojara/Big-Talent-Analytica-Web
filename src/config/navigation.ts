@@ -1,6 +1,7 @@
 import type { IconName } from "@/types/content";
 import { domainNavItems } from "@/data/domains";
 import { aiTechnologyBasePath, aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
+import { resourceNavItems } from "@/data/resources";
 import { talentSubpageNavItems } from "@/data/talent-subpages";
 import { useCaseCategoryNavItems } from "@/data/use-case-categories";
 
@@ -45,20 +46,14 @@ export const mainNavigation: NavigationItem[] = [
     })),
   },
   {
-    label: "Recursos",
+    label: "Recursos y blog",
     href: "/recursos",
-    children: [
-      {
-        label: "Guías",
-        href: "/recursos/guias",
-        description: "Plantillas y recursos descargables.",
-      },
-      {
-        label: "Cursos",
-        href: "/recursos/cursos",
-        description: "Rutas de aprendizaje aplicadas.",
-      },
-    ],
+    children: resourceNavItems.map((item) => ({
+      label: item.menuLabel,
+      href: item.href,
+      description: item.description,
+      icon: item.icon,
+    })),
   },
   {
     label: "Comunidad",

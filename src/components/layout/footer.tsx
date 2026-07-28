@@ -5,15 +5,9 @@ import { Icon } from "@/components/ui/icon";
 import { mainNavigation } from "@/config/navigation";
 import { domainNavItems } from "@/data/domains";
 import { aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
+import { resourceNavItems } from "@/data/resources";
 import { talentSubpageNavItems } from "@/data/talent-subpages";
 import { siteConfig } from "@/config/site";
-
-const popularResources = [
-  { label: "Blog", href: "/recursos" },
-  { label: "Guías y plantillas", href: "/recursos/guias" },
-  { label: "Cursos", href: "/recursos/cursos" },
-  { label: "Casos de uso", href: "/casos-de-uso" },
-];
 
 export function Footer() {
   return (
@@ -72,15 +66,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-bold">Recursos populares</h2>
+            <h2 className="text-xs font-bold">Recursos y blog</h2>
             <ul className="mt-3 space-y-1.5">
-              {popularResources.map((item) => (
+              {resourceNavItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
                     href={item.href}
                   >
-                    {item.label}
+                    {item.menuLabel}
                   </Link>
                 </li>
               ))}
