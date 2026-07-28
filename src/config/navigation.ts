@@ -1,5 +1,6 @@
 import type { IconName } from "@/types/content";
 import { aiTechnologyBasePath, aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
+import { talentSubpageNavItems } from "@/data/talent-subpages";
 import { useCaseCategoryNavItems } from "@/data/use-case-categories";
 
 export type NavigationItem = {
@@ -20,18 +21,7 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: "Talento",
     href: "/talento",
-    children: [
-      {
-        label: "Desarrollo profesional",
-        href: "/talento/desarrollo-profesional",
-        description: "Rutas y criterios para crecer con tecnología.",
-      },
-      {
-        label: "Gestión del talento",
-        href: "/talento/gestion",
-        description: "Prácticas para equipos de alto desempeño.",
-      },
-    ],
+    children: talentSubpageNavItems,
   },
   {
     label: "Casos de uso",
