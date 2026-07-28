@@ -36,6 +36,7 @@ function DesktopNavigationItem({
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hoverOpenedAtRef = useRef(0);
   const active = isNavigationItemActive(item, pathname);
+  const isTalentMenu = item.href === "/talento";
   const isUseCasesMenu = item.href === "/casos-de-uso";
   const isAiTechnologyMenu = item.href === "/ia-y-tecnologia";
 
@@ -178,7 +179,7 @@ function DesktopNavigationItem({
           className={`invisible absolute top-full z-40 translate-y-2 rounded-xl border border-[var(--bta-border)] bg-white opacity-0 shadow-[0_18px_48px_rgb(8_23_63/0.14)] transition ${
             isUseCasesMenu
               ? "left-1/2 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 p-3"
-              : isAiTechnologyMenu
+              : isAiTechnologyMenu || isTalentMenu
                 ? "left-1/2 w-[min(520px,calc(100vw-2rem))] -translate-x-1/2 p-2.5"
               : "right-0 w-64 p-2"
           } ${
@@ -195,7 +196,7 @@ function DesktopNavigationItem({
               onNavigate={() => setOpen(false)}
               pathname={pathname}
             />
-          ) : isAiTechnologyMenu ? (
+          ) : isAiTechnologyMenu || isTalentMenu ? (
             <AiTechnologyDropdown
               items={item.children}
               onNavigate={() => setOpen(false)}
