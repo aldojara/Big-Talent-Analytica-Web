@@ -7,8 +7,10 @@ import { UseCasesFinalCta } from "@/components/sections/use-cases/use-cases-fina
 import { UseCasesHero } from "@/components/sections/use-cases/use-cases-hero";
 import { UseCasesImpact } from "@/components/sections/use-cases/use-cases-impact";
 import { UseCasesProcess } from "@/components/sections/use-cases/use-cases-process";
+import { UseCasesCategoryLinks } from "@/components/sections/use-cases/use-cases-category-links";
 import { UseCasesValueStrip } from "@/components/sections/use-cases/use-cases-value-strip";
 import { siteConfig } from "@/config/site";
+import { allUseCaseCategoryPages } from "@/data/use-case-categories";
 import {
   featuredUseCases,
   useCaseAudiences,
@@ -46,6 +48,7 @@ export default function CasosDeUsoPage() {
       <UseCasesHero hero={useCasesHero} />
       <UseCasesValueStrip items={useCaseValueProposals} />
       <UseCasesCategories categories={useCaseCategories} />
+      <UseCasesCategoryLinks pages={allUseCaseCategoryPages} />
       <FeaturedUseCases cases={featuredUseCases} />
       <UseCasesProcess steps={useCaseProcessSteps} />
       <UseCasesImpact items={useCaseImpactItems} />

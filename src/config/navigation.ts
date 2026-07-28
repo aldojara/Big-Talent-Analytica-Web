@@ -1,3 +1,6 @@
+import type { IconName } from "@/types/content";
+import { useCaseCategoryNavItems } from "@/data/use-case-categories";
+
 export type NavigationItem = {
   label: string;
   href: string;
@@ -6,6 +9,7 @@ export type NavigationItem = {
     label: string;
     href: string;
     description: string;
+    icon?: IconName;
   }[];
 };
 
@@ -31,6 +35,7 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: "Casos de uso",
     href: "/casos-de-uso",
+    children: useCaseCategoryNavItems,
   },
   {
     label: "IA y Tecnología",
