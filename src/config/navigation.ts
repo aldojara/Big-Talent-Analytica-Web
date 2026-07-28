@@ -1,4 +1,5 @@
 import type { IconName } from "@/types/content";
+import { domainNavItems } from "@/data/domains";
 import { aiTechnologyBasePath, aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
 import { talentSubpageNavItems } from "@/data/talent-subpages";
 import { useCaseCategoryNavItems } from "@/data/use-case-categories";
@@ -36,18 +37,12 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: "Dominios",
     href: "/dominios",
-    children: [
-      {
-        label: "Marketing y ventas",
-        href: "/dominios/marketing-ventas",
-        description: "Crecimiento, demanda y experiencia comercial.",
-      },
-      {
-        label: "Operaciones",
-        href: "/dominios/operaciones",
-        description: "Procesos, supply chain y eficiencia.",
-      },
-    ],
+    children: domainNavItems.map((item) => ({
+      label: item.menuLabel,
+      href: item.href,
+      description: item.description,
+      icon: item.icon,
+    })),
   },
   {
     label: "Recursos",

@@ -1,12 +1,12 @@
 import type {
   Cta,
-  Domain,
   FeaturedContent,
   LearningFormat,
   Pillar,
   RadarItem,
   Service,
 } from "@/types/content";
+import { domainNavItems } from "@/data/domains";
 
 export const heroContent = {
   eyebrow: "Big Talent Analytica",
@@ -139,24 +139,11 @@ export const featuredContent: FeaturedContent[] = [
   },
 ];
 
-export const domains: Domain[] = [
-  { title: "Marketing", href: "/dominios/marketing", icon: "megaphone" },
-  { title: "Ventas", href: "/dominios/ventas", icon: "sales" },
-  { title: "Supply Chain", href: "/dominios/supply-chain", icon: "process" },
-  {
-    title: "Atención al cliente",
-    href: "/dominios/atencion-al-cliente",
-    icon: "support",
-  },
-  { title: "Contact Center", href: "/dominios/contact-center", icon: "support" },
-  { title: "Procesos", href: "/dominios/procesos", icon: "automation" },
-  {
-    title: "Recursos Humanos",
-    href: "/dominios/recursos-humanos",
-    icon: "talent",
-  },
-  { title: "Operaciones", href: "/dominios/operaciones", icon: "strategy" },
-];
+export const domains = domainNavItems.map((domain) => ({
+  title: domain.menuLabel,
+  href: domain.href,
+  icon: domain.icon,
+}));
 
 export const learningFormats: LearningFormat[] = [
   {
