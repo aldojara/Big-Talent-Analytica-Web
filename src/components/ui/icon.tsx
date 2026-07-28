@@ -44,6 +44,48 @@ export function Icon({ name, className = "size-6", title }: IconProps) {
           <path d="M4 12h16M10 12v2h4v-2" {...common} />
         </>
       )}
+      {name === "search" && (
+        <>
+          <circle cx="10.5" cy="10.5" r="6.5" {...common} />
+          <path d="m15.5 15.5 4.5 4.5" {...common} />
+        </>
+      )}
+      {name === "shield" && (
+        <>
+          <path d="M12 3 5.5 5.8v5.5c0 4.4 2.7 7.5 6.5 9.7 3.8-2.2 6.5-5.3 6.5-9.7V5.8z" {...common} />
+          <path d="m9 12 2 2 4-5" {...common} />
+        </>
+      )}
+      {name === "alert" && (
+        <>
+          <path d="M12 4 3.5 19h17z" {...common} />
+          <path d="M12 9v4M12 16.5h.01" {...common} />
+        </>
+      )}
+      {name === "gauge" && (
+        <>
+          <path d="M5 18a8 8 0 1 1 14 0" {...common} />
+          <path d="m12 15 4-5M7.5 14.5h.01M16.5 14.5h.01M12 8h.01" {...common} />
+        </>
+      )}
+      {name === "money" && (
+        <>
+          <circle cx="12" cy="12" r="8.5" {...common} />
+          <path d="M14.5 8.8h-3.2a1.8 1.8 0 0 0 0 3.6h1.4a1.8 1.8 0 0 1 0 3.6H9.2M12 7v2M12 16v2" {...common} />
+        </>
+      )}
+      {name === "list-check" && (
+        <>
+          <path d="m5 7 1.4 1.4L9 5.8M5 13l1.4 1.4L9 11.8M12 7h7M12 13h7M5 19h14" {...common} />
+        </>
+      )}
+      {name === "route" && (
+        <>
+          <circle cx="6" cy="6" r="2.5" {...common} />
+          <circle cx="18" cy="18" r="2.5" {...common} />
+          <path d="M8.5 6H14a4 4 0 0 1 0 8h-4a4 4 0 0 0 0 8h5.5" {...common} />
+        </>
+      )}
       {name === "ai" && (
         <>
           <rect x="6" y="6" width="12" height="12" rx="2" {...common} />

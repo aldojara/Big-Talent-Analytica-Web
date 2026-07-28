@@ -81,6 +81,7 @@ export const useCaseCategories: UseCaseCategory[] = [
     description:
       "Casos de selección, desarrollo, retención y cultura impulsados por datos y tecnología.",
     icon: "talent",
+    href: "/casos-de-uso/talento-y-recursos-humanos",
   },
   {
     id: "ai-automation",
@@ -88,6 +89,7 @@ export const useCaseCategories: UseCaseCategory[] = [
     description:
       "Aplicaciones de inteligencia artificial y automatización para optimizar procesos y liberar capacidad.",
     icon: "ai",
+    href: "/casos-de-uso/ia-aplicada-al-negocio",
   },
   {
     id: "business-analytics",
@@ -95,6 +97,7 @@ export const useCaseCategories: UseCaseCategory[] = [
     description:
       "Soluciones de analítica que convierten datos en decisiones estratégicas.",
     icon: "analytics",
+    href: "/casos-de-uso/analitica-y-toma-de-decisiones",
   },
   {
     id: "organizational-transformation",
@@ -102,6 +105,7 @@ export const useCaseCategories: UseCaseCategory[] = [
     description:
       "Experiencias de cambio, diseño organizacional y adopción sostenible de nuevas capacidades.",
     icon: "domain",
+    href: "/casos-de-uso/transformacion-digital-y-organizacional",
   },
 ];
 

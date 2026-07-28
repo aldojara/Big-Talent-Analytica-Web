@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useId, useState } from "react";
 
 import type { NavigationItem } from "@/config/navigation";
+import { Icon } from "@/components/ui/icon";
 
 type MobileNavigationProps = {
   items: NavigationItem[];
@@ -16,10 +17,14 @@ type MobileNavigationProps = {
 
 export function MobileNavigation({ items, cta }: MobileNavigationProps) {
   const [open, setOpen] = useState(false);
+  const [expandedHref, setExpandedHref] = useState<string | null>(null);
   const menuId = useId();
   const pathname = usePathname();
 
-  const closeMenu = () => setOpen(false);
+  const closeMenu = () => {
+    setOpen(false);
+    setExpandedHref(null);
+  };
 
   return (
     <div className="lg:hidden">
@@ -61,36 +66,89 @@ export function MobileNavigation({ items, cta }: MobileNavigationProps) {
             {items.map((item) => {
               const active = isNavigationItemActive(item, pathname);
 
+              const expanded = expandedHref === item.href;
+              const subMenuId = `${menuId}-${item.href.replace(/\W+/g, "-")}`;
+
               return (
-              <li key={item.href}>
-                <Link
-                  aria-current={active ? "page" : undefined}
-                  className={`block rounded-xl px-4 py-3 text-base font-semibold focus-visible:outline focus-visible:outline-2 ${
-                    active
-                      ? "bg-blue-50 text-[var(--bta-blue)]"
-                      : "text-[var(--bta-text)] hover:bg-blue-50"
-                  }`}
-                  href={item.href}
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
-                {item.children ? (
-                  <ul className="ml-4 border-l border-blue-100 pl-3">
-                    {item.children.map((child) => (
-                      <li key={child.href}>
+                <li key={item.href}>
+                  {item.children ? (
+                    <>
+                      <div
+                        className={`flex min-h-12 items-stretch rounded-xl ${
+                          active
+                            ? "bg-blue-50 text-[var(--bta-blue)]"
+                            : "text-[var(--bta-text)] hover:bg-blue-50"
+                        }`}
+                      >
                         <Link
-                          className="block rounded-lg px-4 py-2 text-sm text-[var(--bta-muted)] hover:bg-blue-50 hover:text-[var(--bta-blue)] focus-visible:outline focus-visible:outline-2"
-                          href={child.href}
+                          aria-current={active ? "page" : undefined}
+                          className="flex flex-1 items-center rounded-l-xl px-4 py-3 text-base font-semibold focus-visible:outline focus-visible:outline-2"
+                          href={item.href}
                           onClick={closeMenu}
                         >
-                          {child.label}
+                          {item.label}
                         </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </li>
+                        <button
+                          aria-controls={subMenuId}
+                          aria-expanded={expanded}
+                          aria-label={`${expanded ? "Cerrar" : "Abrir"} submenú ${item.label}`}
+                          className="flex min-w-12 items-center justify-center rounded-r-xl focus-visible:outline focus-visible:outline-2"
+                          onClick={() =>
+                            setExpandedHref((current) =>
+                              current === item.href ? null : item.href,
+                            )
+                          }
+                          type="button"
+                        >
+                          <Icon
+                            className={`size-4 transition ${expanded ? "rotate-90" : ""}`}
+                            name="arrow-right"
+                          />
+                        </button>
+                      </div>
+                      <ul
+                        className={`ml-4 overflow-hidden border-l border-blue-100 pl-3 transition ${
+                          expanded ? "max-h-[34rem] py-1" : "max-h-0"
+                        }`}
+                        id={subMenuId}
+                      >
+                        {item.children.map((child) => {
+                          const childActive = isChildActive(child.href, pathname);
+
+                          return (
+                            <li key={child.href}>
+                              <Link
+                                aria-current={childActive ? "page" : undefined}
+                                className={`block min-h-10 rounded-lg px-4 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 ${
+                                  childActive
+                                    ? "bg-blue-50 text-[var(--bta-blue)]"
+                                    : "text-[var(--bta-muted)] hover:bg-blue-50 hover:text-[var(--bta-blue)]"
+                                }`}
+                                href={child.href}
+                                onClick={closeMenu}
+                              >
+                                {child.label}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      aria-current={active ? "page" : undefined}
+                      className={`block rounded-xl px-4 py-3 text-base font-semibold focus-visible:outline focus-visible:outline-2 ${
+                        active
+                          ? "bg-blue-50 text-[var(--bta-blue)]"
+                          : "text-[var(--bta-text)] hover:bg-blue-50"
+                      }`}
+                      href={item.href}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
               );
             })}
           </ul>
@@ -105,6 +163,14 @@ export function MobileNavigation({ items, cta }: MobileNavigationProps) {
       </div>
     </div>
   );
+}
+
+function isChildActive(href: string, pathname: string) {
+  if (href === "/casos-de-uso") {
+    return pathname === href;
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 function isNavigationItemActive(item: NavigationItem, pathname: string) {

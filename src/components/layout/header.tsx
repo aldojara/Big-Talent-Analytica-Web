@@ -33,7 +33,7 @@ export function Header() {
 
         <Link
           href={ctaNavigation.href}
-          className="hidden min-h-9 shrink-0 items-center justify-center rounded-lg bg-[var(--bta-blue)] px-4 py-2 text-xs font-bold text-white shadow-[0_10px_24px_rgb(0_87_255/0.2)] transition hover:bg-[var(--bta-blue-bright)] focus-visible:outline focus-visible:outline-2 lg:inline-flex xl:px-5"
+          className="hidden min-h-9 shrink-0 items-center justify-center rounded-lg bg-[var(--bta-blue)] px-4 py-2 text-xs font-bold text-white shadow-[0_10px_24px_rgb(0_87_255/0.2)] transition hover:bg-[var(--bta-blue-bright)] focus-visible:outline focus-visible:outline-2 xl:inline-flex xl:px-5"
         >
           {ctaNavigation.label}
         </Link>
