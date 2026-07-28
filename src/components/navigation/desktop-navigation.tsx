@@ -12,7 +12,7 @@ export function DesktopNavigation({ items }: { items: NavigationItem[] }) {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Navegación principal" className="hidden lg:block">
+    <nav aria-label="Navegación principal" className="hidden xl:block">
       <ul className="flex items-center gap-0.5 xl:gap-1" key={pathname}>
         {items.map((item) => (
           <DesktopNavigationItem item={item} key={item.href} pathname={pathname} />
@@ -40,6 +40,7 @@ function DesktopNavigationItem({
   const isUseCasesMenu = item.href === "/casos-de-uso";
   const isAiTechnologyMenu = item.href === "/ia-y-tecnologia";
   const isDomainsMenu = item.href === "/dominios";
+  const isResourcesMenu = item.href === "/recursos";
 
   useEffect(() => {
     if (!open) {
@@ -182,7 +183,7 @@ function DesktopNavigationItem({
               ? "left-1/2 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 p-3"
               : isDomainsMenu
                 ? "right-0 w-[min(520px,calc(100vw-2rem))] p-2.5"
-              : isAiTechnologyMenu || isTalentMenu
+              : isAiTechnologyMenu || isTalentMenu || isResourcesMenu
                 ? "left-1/2 w-[min(520px,calc(100vw-2rem))] -translate-x-1/2 p-2.5"
               : "right-0 w-64 p-2"
           } ${
@@ -199,7 +200,7 @@ function DesktopNavigationItem({
               onNavigate={() => setOpen(false)}
               pathname={pathname}
             />
-          ) : isAiTechnologyMenu || isTalentMenu || isDomainsMenu ? (
+          ) : isAiTechnologyMenu || isTalentMenu || isDomainsMenu || isResourcesMenu ? (
             <AiTechnologyDropdown
               items={item.children}
               onNavigate={() => setOpen(false)}

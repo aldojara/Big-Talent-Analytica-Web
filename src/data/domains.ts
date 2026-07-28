@@ -111,7 +111,7 @@ const commonResources = (domain: string): DomainResource[] => [
     type: "Guía",
     title: "Frameworks y metodologías",
     description: "Pasos prácticos para diseñar iniciativas aplicables.",
-    href: "/recursos/guias",
+    href: "/recursos/guias-y-plantillas",
     icon: "learning",
   },
   {
@@ -132,7 +132,7 @@ const commonResources = (domain: string): DomainResource[] => [
     type: "Curso",
     title: "Rutas de aprendizaje",
     description: "Capacidades para aplicar analítica, automatización e IA.",
-    href: "/recursos/cursos",
+    href: "/recursos/cursos-y-rutas",
     icon: "course",
   },
 ];
@@ -247,9 +247,9 @@ export const domainPages: DomainPage[] = [
     ],
     resources: [
       { type: "Artículo", title: "Omnicanalidad: del canal a la experiencia", description: "Cómo crear experiencias conectadas y consistentes.", href: resources, icon: "guide" },
-      { type: "Guía", title: "Customer Journey Mapping", description: "Paso a paso para mapear y mejorar cada interacción.", href: "/recursos/guias", icon: "learning" },
+      { type: "Guía", title: "Customer Journey Mapping", description: "Paso a paso para mapear y mejorar cada interacción.", href: "/recursos/guias-y-plantillas", icon: "learning" },
       { type: "Video", title: "IA generativa en el servicio al cliente", description: "Casos reales y estrategias para implementarla.", href: "/recursos/videos", icon: "play" },
-      { type: "Plantilla", title: "Matriz de experiencia de cliente", description: "Evalúa puntos de contacto y oportunidades de mejora.", href: "/recursos/guias", icon: "list-check" },
+      { type: "Plantilla", title: "Matriz de experiencia de cliente", description: "Evalúa puntos de contacto y oportunidades de mejora.", href: "/recursos/guias-y-plantillas", icon: "list-check" },
     ],
     finalCta: {
       title: "¿Listo para transformar la experiencia de tus clientes?",
@@ -308,9 +308,9 @@ export const domainPages: DomainPage[] = [
     ],
     resources: [
       { type: "Artículo", title: "Tendencias que están transformando la Supply Chain", description: "Analítica e IA redefiniendo cadenas de suministro.", href: resources, icon: "guide" },
-      { type: "Guía", title: "Analítica para la cadena de suministro", description: "Metodologías y casos para planificación, inventarios y logística.", href: "/recursos/guias", icon: "learning" },
+      { type: "Guía", title: "Analítica para la cadena de suministro", description: "Metodologías y casos para planificación, inventarios y logística.", href: "/recursos/guias-y-plantillas", icon: "learning" },
       { type: "Video", title: "Cómo la IA optimiza tus operaciones", description: "Ejemplos reales de IA aplicada en pronósticos, ruteo y control.", href: "/recursos/videos", icon: "play" },
-      { type: "Plantilla", title: "Dashboard de Supply Chain y operaciones", description: "Plantilla para monitorear KPIs clave de la cadena de valor.", href: "/recursos/guias", icon: "analytics" },
+      { type: "Plantilla", title: "Dashboard de Supply Chain y operaciones", description: "Plantilla para monitorear KPIs clave de la cadena de valor.", href: "/recursos/guias-y-plantillas", icon: "analytics" },
     ],
     finalCta: {
       title: "¿Listo para optimizar tu cadena de valor y tus operaciones?",
@@ -370,9 +370,9 @@ export const domainPages: DomainPage[] = [
     ],
     resources: [
       { type: "Artículo", title: "Qué es Process Mining y cómo transforma los procesos", description: "Cómo revelar oportunidades reales de mejora.", href: resources, icon: "guide" },
-      { type: "Guía", title: "Roadmap de automatización de procesos", description: "Prioriza, diseña y escala automatización.", href: "/recursos/guias", icon: "learning" },
+      { type: "Guía", title: "Roadmap de automatización de procesos", description: "Prioriza, diseña y escala automatización.", href: "/recursos/guias-y-plantillas", icon: "learning" },
       { type: "Video", title: "Gestión del cambio para transformaciones exitosas", description: "Claves para sostener adopción en la organización.", href: "/recursos/videos", icon: "play" },
-      { type: "Plantilla", title: "Dashboard de monitoreo de procesos", description: "Mide eficiencia, SLA y adopción.", href: "/recursos/guias", icon: "analytics" },
+      { type: "Plantilla", title: "Dashboard de monitoreo de procesos", description: "Mide eficiencia, SLA y adopción.", href: "/recursos/guias-y-plantillas", icon: "analytics" },
     ],
     finalCta: {
       title: "¿Listo para transformar tus procesos y acelerar la adopción?",
@@ -432,9 +432,9 @@ export const domainPages: DomainPage[] = [
     ],
     resources: [
       { type: "Artículo", title: "Tendencias en analítica financiera", description: "Transformaciones que están redefiniendo las finanzas.", href: resources, icon: "guide" },
-      { type: "Guía", title: "Forecasting y performance", description: "Prácticas para crear modelos financieros robustos.", href: "/recursos/guias", icon: "learning" },
+      { type: "Guía", title: "Forecasting y performance", description: "Prácticas para crear modelos financieros robustos.", href: "/recursos/guias-y-plantillas", icon: "learning" },
       { type: "Video", title: "Cómo la IA mejora el control financiero", description: "Casos de detección de riesgo y control del gasto.", href: "/recursos/videos", icon: "play" },
-      { type: "Plantilla", title: "Dashboard de rentabilidad", description: "KPIs financieros y de negocio listos para monitorear.", href: "/recursos/guias", icon: "analytics" },
+      { type: "Plantilla", title: "Dashboard de rentabilidad", description: "KPIs financieros y de negocio listos para monitorear.", href: "/recursos/guias-y-plantillas", icon: "analytics" },
     ],
     finalCta: {
       title: "¿Listo para fortalecer tus decisiones financieras y tu rendimiento?",
@@ -496,9 +496,9 @@ export const domainPages: DomainPage[] = [
     ],
     resources: [
       { type: "Artículo", title: "People Analytics: de datos a decisiones que importan", description: "Cómo convertir datos de personas en acciones.", href: resources, icon: "guide" },
-      { type: "Guía", title: "Diseño de rutas de aprendizaje", description: "Pasos clave para crear programas efectivos.", href: "/recursos/guias", icon: "learning" },
+      { type: "Guía", title: "Diseño de rutas de aprendizaje", description: "Pasos clave para crear programas efectivos.", href: "/recursos/guias-y-plantillas", icon: "learning" },
       { type: "Video", title: "IA en Recursos Humanos", description: "Casos y oportunidades de aplicación.", href: "/recursos/videos", icon: "play" },
-      { type: "Plantilla", title: "Matriz de habilidades y brechas", description: "Evalúa habilidades actuales y planifica desarrollo.", href: "/recursos/guias", icon: "list-check" },
+      { type: "Plantilla", title: "Matriz de habilidades y brechas", description: "Evalúa habilidades actuales y planifica desarrollo.", href: "/recursos/guias-y-plantillas", icon: "list-check" },
     ],
     finalCta: {
       title: "¿Quieres transformar la gestión del talento en tu organización?",
@@ -531,10 +531,10 @@ export const overviewFeaturedUseCases = [
 
 export const overviewResourceTypes = [
   { title: "Artículos", description: "Ideas y tendencias aplicadas al negocio.", href: resources, icon: "guide" as const },
-  { title: "Guías", description: "Frameworks y metodologías paso a paso.", href: "/recursos/guias", icon: "learning" as const },
+  { title: "Guías", description: "Frameworks y metodologías paso a paso.", href: "/recursos/guias-y-plantillas", icon: "learning" as const },
   { title: "Casos", description: "Historias reales de impacto medible.", href: cases, icon: "briefcase" as const },
   { title: "Videos", description: "Charlas y explicaciones prácticas.", href: "/recursos/videos", icon: "play" as const },
-  { title: "Cursos", description: "Rutas de aprendizaje y certificaciones.", href: "/recursos/cursos", icon: "course" as const },
+  { title: "Cursos", description: "Rutas de aprendizaje y certificaciones.", href: "/recursos/cursos-y-rutas", icon: "course" as const },
 ];
 
 export function getDomainPage(slug: string) {

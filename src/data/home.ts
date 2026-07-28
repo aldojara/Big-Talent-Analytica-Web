@@ -161,13 +161,13 @@ export const learningFormats: LearningFormat[] = [
   {
     title: "Guías",
     description: "Recursos descargables",
-    href: "/recursos/guias",
+    href: "/recursos/guias-y-plantillas",
     icon: "learning",
   },
   {
     title: "Cursos",
     description: "Formación especializada",
-    href: "/recursos/cursos",
+    href: "/recursos/cursos-y-rutas",
     icon: "course",
   },
   {

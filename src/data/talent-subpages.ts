@@ -84,8 +84,8 @@ export const talentSubpages: TalentSubpageConfig[] = [
     relatedContent: {
       title: "Contenidos relacionados",
       items: [
-        { tag: "GUÍA", title: "Guía: Liderar en tiempos de cambio", description: "Principios y prácticas para liderar con claridad e inspiración en la incertidumbre.", icon: "guide", href: "/recursos/guias" },
-        { tag: "CURSO", title: "Curso: Liderazgo y cultura para equipos modernos", description: "Curso práctico para crear culturas de confianza y alto desempeño.", icon: "course", href: "/recursos/cursos" },
+        { tag: "GUÍA", title: "Guía: Liderar en tiempos de cambio", description: "Principios y prácticas para liderar con claridad e inspiración en la incertidumbre.", icon: "guide", href: "/recursos/guias-y-plantillas" },
+        { tag: "CURSO", title: "Curso: Liderazgo y cultura para equipos modernos", description: "Curso práctico para crear culturas de confianza y alto desempeño.", icon: "course", href: "/recursos/cursos-y-rutas" },
         { tag: "ARTÍCULO", title: "Artículo: Cómo alinear cultura y estrategia", description: "Claves para conectar valores, comportamientos y objetivos del negocio.", icon: "strategy", href: "/recursos" },
       ],
     },

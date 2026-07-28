@@ -69,7 +69,7 @@ export const aiTechnologyMain = {
   ],
   explore: [
     { icon: "chart", title: "Tendencias y análisis", description: "Informes y perspectivas sobre lo que transforma los negocios.", href: pagePath("radar"), visual: "radar" as const },
-    { icon: "guide", title: "Guías prácticas", description: "Recursos paso a paso para aplicar tecnología con impacto.", href: "/recursos/guias", visual: "ai" as const },
+    { icon: "guide", title: "Guías prácticas", description: "Recursos paso a paso para aplicar tecnología con impacto.", href: "/recursos/guias-y-plantillas", visual: "ai" as const },
     { icon: "list-check", title: "Comparativas de herramientas", description: "Evaluaciones objetivas para elegir mejor y con criterio.", href: pagePath("herramientas-y-plataformas"), visual: "tools" as const },
     { icon: "domain", title: "Aplicaciones y casos relacionados", description: "Casos de uso y ejemplos reales por industria y función.", href: "/casos-de-uso", visual: "transformation" as const },
   ],
@@ -262,7 +262,7 @@ export const aiTechnologyPages: AiTechPageConfig[] = [
     applications: [
       { title: "Asistentes internos y copilotos", description: "Responden, resumen, analizan y ejecutan tareas complejas.", href: "/talento", visual: "generative" },
       { title: "Contenido y productividad comercial", description: "Propuestas, presentaciones, emails y materiales de alto impacto.", href: "/casos-de-uso/marketing-y-ventas", visual: "tools" },
-      { title: "Gestión del conocimiento con IA", description: "Organiza, consulta y comparte conocimiento empresarial.", href: "/recursos/guias", visual: "ai" },
+      { title: "Gestión del conocimiento con IA", description: "Organiza, consulta y comparte conocimiento empresarial.", href: "/recursos/guias-y-plantillas", visual: "ai" },
       { title: "Experiencias conversacionales", description: "Asistentes para atención, soporte y engagement omnicanal.", href: "/casos-de-uso/experiencia-de-cliente", visual: "automation" },
     ],
     processTitle: "Cómo abordamos la IA generativa",
@@ -458,7 +458,7 @@ const extraPages: AiTechPageConfig[] = [
       { title: "Comparativa de copilotos y asistentes", description: "Evalúa asistentes por capacidades, seguridad y valor.", href: pagePath("ia-generativa"), visual: "generative" },
       { title: "Plataformas de automatización", description: "Orquesta procesos y conecta sistemas sin fricción.", href: pagePath("automatizacion"), visual: "automation" },
       { title: "Dashboards y business intelligence", description: "Visualiza datos, monitorea KPIs y toma decisiones.", href: pagePath("datos-y-analitica"), visual: "data" },
-      { title: "Herramientas para knowledge management", description: "Captura, organiza y comparte conocimiento.", href: "/recursos/guias", visual: "tools" },
+      { title: "Herramientas para knowledge management", description: "Captura, organiza y comparte conocimiento.", href: "/recursos/guias-y-plantillas", visual: "tools" },
     ],
     processTitle: "Cómo abordamos la selección tecnológica",
     process: commonProcess.map((step) => step.step === 3 ? { ...step, title: "Comparar", icon: "list-check", description: "Evaluamos opciones con metodología." } : step.step === 4 ? { ...step, title: "Probar", description: "Validamos en pilotos y pruebas." } : step.step === 5 ? { ...step, title: "Decidir", description: "Recomendamos con plan de adopción." } : step),
@@ -583,7 +583,7 @@ const extraPages: AiTechPageConfig[] = [
     ],
     applicationsTitle: "Aplicaciones destacadas",
     applications: [
-      { title: "Políticas de uso de IA", description: "Desarrolla políticas claras y alineadas a tu organización.", href: "/recursos/guias", visual: "governance" },
+      { title: "Políticas de uso de IA", description: "Desarrolla políticas claras y alineadas a tu organización.", href: "/recursos/guias-y-plantillas", visual: "governance" },
       { title: "Evaluación de riesgos algorítmicos", description: "Evalúa sesgos, impacto y seguridad para decidir mejor.", href: pagePath("inteligencia-artificial"), visual: "data" },
       { title: "Gobierno para copilotos y asistentes", description: "Controles y buenas prácticas para el uso seguro.", href: pagePath("ia-generativa"), visual: "generative" },
       { title: "Marco de adopción responsable", description: "Implementa IA de forma escalable y alineada al valor.", href: pagePath("transformacion-digital"), visual: "radar" },
