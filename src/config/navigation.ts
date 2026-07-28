@@ -1,4 +1,5 @@
 import type { IconName } from "@/types/content";
+import { communityNavItems } from "@/data/community";
 import { domainNavItems } from "@/data/domains";
 import { aiTechnologyBasePath, aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
 import { resourceNavItems } from "@/data/resources";
@@ -58,18 +59,12 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: "Comunidad",
     href: "/comunidad",
-    children: [
-      {
-        label: "Newsletter",
-        href: "/comunidad/newsletter",
-        description: "Ideas semanales para seguir aprendiendo.",
-      },
-      {
-        label: "Eventos",
-        href: "/comunidad/eventos",
-        description: "Encuentros, webinars y conversaciones.",
-      },
-    ],
+    children: communityNavItems.map((item) => ({
+      label: item.menuLabel,
+      href: item.href,
+      description: item.description,
+      icon: item.icon,
+    })),
   },
 ];
 
