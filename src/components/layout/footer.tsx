@@ -2,12 +2,14 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { Icon } from "@/components/ui/icon";
-import { mainNavigation } from "@/config/navigation";
-import { communityNavItems } from "@/data/community";
-import { domainNavItems } from "@/data/domains";
-import { aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
-import { resourceNavItems } from "@/data/resources";
-import { talentSubpageNavItems } from "@/data/talent-subpages";
+import {
+  aiTechnologyNavigationItems,
+  communityNavigationItems,
+  domainNavigationItems,
+  mainNavigation,
+  resourceNavigationItems,
+  talentNavigationItems,
+} from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 
 export function Footer() {
@@ -69,13 +71,13 @@ export function Footer() {
           <div>
             <h2 className="text-xs font-bold">Recursos y blog</h2>
             <ul className="mt-3 space-y-1.5">
-              {resourceNavItems.map((item) => (
+              {resourceNavigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
                     href={item.href}
                   >
-                    {item.menuLabel}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -85,7 +87,7 @@ export function Footer() {
           <div>
             <h2 className="text-xs font-bold">Talento</h2>
             <ul className="mt-3 space-y-1.5">
-              {talentSubpageNavItems.map((item) => (
+              {talentNavigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
@@ -101,13 +103,13 @@ export function Footer() {
           <div>
             <h2 className="text-xs font-bold">Dominios</h2>
             <ul className="mt-3 space-y-1.5">
-              {domainNavItems.map((item) => (
+              {domainNavigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
                     href={item.href}
                   >
-                    {item.menuLabel}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -117,7 +119,7 @@ export function Footer() {
           <div>
             <h2 className="text-xs font-bold">IA y Tecnología</h2>
             <ul className="mt-3 space-y-1.5">
-              {aiTechnologyNavItems.map((item) => (
+              {aiTechnologyNavigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
@@ -133,13 +135,13 @@ export function Footer() {
           <div>
             <h2 className="text-xs font-bold">Comunidad</h2>
             <ul className="mt-3 space-y-1.5">
-              {communityNavItems.map((item) => (
+              {communityNavigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
                     href={item.href}
                   >
-                    {item.menuLabel}
+                    {item.label}
                   </Link>
                 </li>
               ))}
