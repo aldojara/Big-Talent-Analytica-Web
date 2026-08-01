@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/no-prefetch-link";
 
 import { Container } from "@/components/layout/container";
 import { AiTechHero, AiTechPillars, ContentGrid, FinalCta, KeyAreas, SectionTitle } from "@/components/sections/ia-tecnologia/ai-tech-shared";

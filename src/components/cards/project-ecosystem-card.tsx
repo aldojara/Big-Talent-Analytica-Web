@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/no-prefetch-link";
 
 import type { ProjectEcosystemItem } from "@/types/about";
 

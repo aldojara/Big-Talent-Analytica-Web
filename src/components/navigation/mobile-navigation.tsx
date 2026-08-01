@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/ui/no-prefetch-link";
 import { usePathname } from "next/navigation";
 import { useId, useState } from "react";
 

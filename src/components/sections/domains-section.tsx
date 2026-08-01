@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/no-prefetch-link";
 
 import { DomainCard } from "@/components/cards/domain-card";
 import { Container } from "@/components/layout/container";

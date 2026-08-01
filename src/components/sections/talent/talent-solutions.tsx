@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/no-prefetch-link";
 
 import { accentStyles } from "@/components/cards/talent-card-styles";
 import { Container } from "@/components/layout/container";
