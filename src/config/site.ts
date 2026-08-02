@@ -4,7 +4,7 @@ export const siteConfig = {
   founder: "Aldo Jara Pisconti",
   description:
     "Plataforma de conocimiento y casos de uso sobre IA, analítica, tecnología y gestión del talento para impulsar la transformación digital en personas y organizaciones.",
-  url: "https://big-talent-analytica-web.aldo-pisconti-fr01.workers.dev",
+  url: "https://bigtalentanalytica.com",
   contactEmail: "hello@bigtalentanalytica.com",
   socialLinks: [
     { label: "TikTok", href: "/comunidad/canales-y-redes", glyph: "music" },
