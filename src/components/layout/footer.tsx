@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--bta-blue-deeper)] text-white">
       <Container className="py-9">
-        <div className="grid gap-8 border-b border-white/15 pb-8 md:grid-cols-2 lg:grid-cols-[1.35fr_0.9fr_1.15fr_1.1fr_1.15fr_1fr_1.05fr_1fr]">
+        <div className="grid gap-8 border-b border-white/15 pb-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-[1.35fr_0.9fr_1.15fr_1.1fr_1.15fr_1fr_1.05fr_1fr]">
           <div>
             <Link className="inline-flex items-center gap-2.5" href="/">
               <span className="grid size-8 grid-cols-3 gap-0.5 text-[var(--bta-blue-bright)]">

@@ -182,9 +182,9 @@ function DesktopNavigationItem({
           className={`invisible absolute top-full z-40 translate-y-2 rounded-xl border border-[var(--bta-border)] bg-white opacity-0 shadow-[0_18px_48px_rgb(8_23_63/0.14)] transition ${
             isUseCasesMenu
               ? "left-1/2 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 p-3"
-              : isDomainsMenu
+              : isDomainsMenu || isCommunityMenu
                 ? "right-0 w-[min(520px,calc(100vw-2rem))] p-2.5"
-              : isAiTechnologyMenu || isTalentMenu || isResourcesMenu || isCommunityMenu
+              : isAiTechnologyMenu || isTalentMenu || isResourcesMenu
                 ? "left-1/2 w-[min(520px,calc(100vw-2rem))] -translate-x-1/2 p-2.5"
               : "right-0 w-64 p-2"
           } ${
