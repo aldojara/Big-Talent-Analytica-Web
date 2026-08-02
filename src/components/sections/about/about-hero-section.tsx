@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
@@ -41,22 +43,19 @@ export function AboutHeroSection() {
         </div>
 
         <div className="min-w-0">
-          <div className="relative mx-auto max-w-[28rem]">
-            <div className="absolute inset-4 rounded-[4rem] border border-blue-100" />
-            <div className="absolute -inset-2 rounded-[4.5rem] border border-blue-100/70" />
-            <div className="relative mx-auto aspect-[0.86] w-[min(82vw,21rem)] overflow-hidden rounded-[3.25rem] border border-blue-100 bg-[radial-gradient(circle_at_50%_24%,rgb(29_115_255/0.55),transparent_27%),linear-gradient(180deg,#06245f,#021236)] shadow-[0_26px_70px_rgb(8_23_63/0.22)]">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 opacity-35 [background-image:radial-gradient(rgb(255_255_255/0.75)_1px,transparent_1px)] [background-size:20px_20px]"
+          <div className="relative mx-auto max-w-[31rem]">
+            <div className="absolute inset-4 rounded-lg border border-blue-100" />
+            <div className="absolute -inset-2 rounded-lg border border-blue-100/70" />
+            <div className="relative mx-auto aspect-[1.02] w-[min(88vw,27rem)] overflow-hidden rounded-lg border border-blue-100 bg-slate-100 shadow-[0_26px_70px_rgb(8_23_63/0.22)]">
+              <Image
+                alt="Aldo Jara Pisconti con certificado IESE Business School"
+                className="object-cover"
+                fill
+                priority
+                sizes="(max-width: 1024px) 88vw, 27rem"
+                src="/images/about/aldo-jara-iese-certificate.jpg"
+                unoptimized
               />
-              <div className="absolute inset-x-8 bottom-0 h-[72%] rounded-t-[7rem] bg-[linear-gradient(180deg,rgb(255_255_255/0.2),rgb(255_255_255/0.04))]" />
-              <div className="absolute left-1/2 top-[31%] size-24 -translate-x-1/2 rounded-full border border-white/35 bg-white/12" />
-              <div className="absolute inset-x-10 bottom-9 rounded-2xl border border-white/20 bg-white/10 p-4 text-center text-white backdrop-blur">
-                <p className="text-xs font-bold">Retrato profesional</p>
-                <p className="mt-1 text-[0.68rem] leading-4 text-blue-50">
-                  Placeholder visual listo para reemplazar por una imagen real
-                </p>
-              </div>
             </div>
             <div className="mt-4 grid gap-2 sm:absolute sm:inset-0 sm:mt-0">
               {aboutHero.floatingProofs.map((proof, index) => (
