@@ -181,7 +181,7 @@ function DesktopNavigationItem({
         <div
           className={`invisible absolute top-full z-40 translate-y-2 rounded-xl border border-[var(--bta-border)] bg-white opacity-0 shadow-[0_18px_48px_rgb(8_23_63/0.14)] transition ${
             isUseCasesMenu
-              ? "left-1/2 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 p-3"
+              ? "left-1/2 w-[min(760px,calc(100vw-2rem))] -translate-x-1/2 p-2.5"
               : isDomainsMenu || isCommunityMenu
                 ? "right-0 w-[min(520px,calc(100vw-2rem))] p-2.5"
               : isAiTechnologyMenu || isTalentMenu || isResourcesMenu
@@ -196,7 +196,7 @@ function DesktopNavigationItem({
           ref={panelRef}
         >
           {isUseCasesMenu ? (
-            <UseCasesMegaMenu
+            <AiTechnologyDropdown
               items={item.children}
               onNavigate={() => setOpen(false)}
               pathname={pathname}
@@ -262,95 +262,6 @@ function AiTechnologyDropdown({
         );
       })}
     </ul>
-  );
-}
-
-function UseCasesMegaMenu({
-  items,
-  pathname,
-  onNavigate,
-}: {
-  items: NonNullable<NavigationItem["children"]>;
-  pathname: string;
-  onNavigate: () => void;
-}) {
-  const leftItems = items.slice(0, 4);
-  const rightItems = items.slice(4, 8);
-
-  return (
-    <div className="max-h-[min(72vh,30rem)] overflow-y-auto">
-      <div className="grid gap-2 md:grid-cols-2">
-        <div className="grid gap-2">
-          {leftItems.map((child) => (
-            <MegaMenuLink
-              child={child}
-              key={child.href}
-              onNavigate={onNavigate}
-              pathname={pathname}
-            />
-          ))}
-        </div>
-        <div className="grid gap-2">
-          {rightItems.map((child) => (
-            <MegaMenuLink
-              child={child}
-              key={child.href}
-              onNavigate={onNavigate}
-              pathname={pathname}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MegaMenuLink({
-  child,
-  pathname,
-  onNavigate,
-  featured = false,
-}: {
-  child: NonNullable<NavigationItem["children"]>[number];
-  pathname: string;
-  onNavigate: () => void;
-  featured?: boolean;
-}) {
-  const active = isChildActive(child.href, pathname);
-
-  return (
-    <Link
-      aria-current={active ? "page" : undefined}
-      className={`flex min-h-14 items-center gap-3 rounded-lg border p-3 transition focus-visible:outline focus-visible:outline-2 ${
-        active
-          ? "border-blue-200 bg-blue-50 text-[var(--bta-blue)]"
-          : "border-transparent text-[var(--bta-text)] hover:border-blue-100 hover:bg-blue-50/70"
-      } ${featured ? "bg-[var(--bta-blue-deeper)] text-white hover:bg-[var(--bta-blue-dark)]" : ""}`}
-      href={child.href}
-      onClick={onNavigate}
-    >
-      <span
-        className={`flex size-9 shrink-0 items-center justify-center rounded-lg ${
-          featured
-            ? "bg-white/10 text-[var(--bta-blue-bright)]"
-            : "bg-blue-50 text-[var(--bta-blue)]"
-        }`}
-      >
-        <Icon className="size-5" name={child.icon ?? "arrow-right"} />
-      </span>
-      <span className="min-w-0">
-        <span className="block text-sm font-black leading-tight">
-          {child.label}
-        </span>
-        <span
-          className={`mt-0.5 block text-[0.72rem] leading-4 ${
-            featured ? "text-blue-100" : "text-[var(--bta-muted)]"
-          }`}
-        >
-          {child.description}
-        </span>
-      </span>
-    </Link>
   );
 }
 

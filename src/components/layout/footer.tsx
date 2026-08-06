@@ -1,21 +1,28 @@
 import Link from "@/components/ui/no-prefetch-link";
+import type { ReactNode } from "react";
 
 import { Container } from "@/components/layout/container";
 import { Icon } from "@/components/ui/icon";
-import { mainNavigation } from "@/config/navigation";
-import { communityNavItems } from "@/data/community";
 import { domainNavItems } from "@/data/domains";
 import { aiTechnologyNavItems } from "@/data/ia-tecnologia/navigation";
 import { resourceNavItems } from "@/data/resources";
 import { talentSubpageNavItems } from "@/data/talent-subpages";
 import { siteConfig } from "@/config/site";
 
+const exploreLinks = [
+  { label: "Inicio", href: "/" },
+  { label: "Sobre mí", href: "/sobre-mi" },
+  { label: "Casos de uso", href: "/casos-de-uso" },
+  { label: "Comunidad", href: "/comunidad" },
+  { label: "Contacto", href: "/agenda" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-[var(--bta-blue-deeper)] text-white">
       <Container className="py-9">
-        <div className="grid gap-8 border-b border-white/15 pb-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-[1.35fr_0.9fr_1.15fr_1.1fr_1.15fr_1fr_1.05fr_1fr]">
-          <div>
+        <div className="grid gap-x-10 gap-y-8 border-b border-white/15 pb-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.45fr_repeat(5,minmax(0,1fr))]">
+          <div className="min-w-0">
             <Link className="inline-flex items-center gap-2.5" href="/">
               <span className="grid size-8 grid-cols-3 gap-0.5 text-[var(--bta-blue-bright)]">
                 {Array.from({ length: 9 }).map((_, index) => (
@@ -50,124 +57,76 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-xs font-bold">Navegación</h2>
-            <ul className="mt-3 grid grid-cols-2 gap-1.5">
-              {mainNavigation.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xs font-bold">Recursos y blog</h2>
-            <ul className="mt-3 space-y-1.5">
-              {resourceNavItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
-                    href={item.href}
-                  >
-                    {item.menuLabel}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xs font-bold">Talento</h2>
-            <ul className="mt-3 space-y-1.5">
-              {talentSubpageNavItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xs font-bold">Dominios</h2>
-            <ul className="mt-3 space-y-1.5">
-              {domainNavItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
-                    href={item.href}
-                  >
-                    {item.menuLabel}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xs font-bold">IA y Tecnología</h2>
-            <ul className="mt-3 space-y-1.5">
-              {aiTechnologyNavItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xs font-bold">Comunidad</h2>
-            <ul className="mt-3 space-y-1.5">
-              {communityNavItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    className="text-xs text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
-                    href={item.href}
-                  >
-                    {item.menuLabel}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xs font-bold">Contacto</h2>
-            <ul className="mt-3 space-y-2.5 text-xs text-blue-100">
-              <li className="flex gap-2">
-                <Icon className="mt-0.5 size-3.5" name="mail" />
-                <Link
-                  className="hover:text-white focus-visible:outline focus-visible:outline-2"
-                  href={`mailto:${siteConfig.contactEmail}`}
-                >
-                  {siteConfig.contactEmail}
-                </Link>
+          <FooterColumn title="Explorar">
+            {exploreLinks.map((item) => (
+              <li key={item.href}>
+                <FooterLink href={item.href}>{item.label}</FooterLink>
               </li>
-              <li className="flex gap-2">
-                <Icon className="mt-0.5 size-3.5" name="calendar" />
-                <Link
-                  className="hover:text-white focus-visible:outline focus-visible:outline-2"
-                  href="/agenda"
-                >
-                  Agenda una sesión
-                </Link>
+            ))}
+          </FooterColumn>
+
+          <FooterColumn title="Talento">
+            {talentSubpageNavItems.map((item) => (
+              <li key={item.href}>
+                <FooterLink href={item.href}>{item.label}</FooterLink>
               </li>
-            </ul>
+            ))}
+          </FooterColumn>
+
+          <FooterColumn title="Dominios">
+            {domainNavItems.map((item) => (
+              <li key={item.href}>
+                <FooterLink href={item.href}>{item.menuLabel}</FooterLink>
+              </li>
+            ))}
+          </FooterColumn>
+
+          <FooterColumn title="IA y Tecnología">
+            {aiTechnologyNavItems.map((item) => (
+              <li key={item.href}>
+                <FooterLink href={item.href}>{item.label}</FooterLink>
+              </li>
+            ))}
+          </FooterColumn>
+
+          <div className="min-w-0">
+            <h2 className="text-xs font-bold">Recursos y contacto</h2>
+            <div className="mt-3">
+              <h3 className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-blue-200">
+                Recursos
+              </h3>
+              <ul className="mt-2 space-y-1.5">
+                {resourceNavItems.map((item) => (
+                  <li key={item.href}>
+                    <FooterLink href={item.href}>{item.menuLabel}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-5">
+              <h3 className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-blue-200">
+                Contacto
+              </h3>
+              <ul className="mt-2 space-y-2.5 text-xs leading-5 text-blue-100">
+                <li>
+                  <Link
+                    className="break-words hover:text-white focus-visible:outline focus-visible:outline-2"
+                    href={`mailto:${siteConfig.contactEmail}`}
+                  >
+                    {siteConfig.contactEmail}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-white focus-visible:outline focus-visible:outline-2"
+                    href="/agenda"
+                  >
+                    Agenda una sesión
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <p className="pt-5 text-center text-[0.68rem] text-blue-100">
@@ -175,6 +134,38 @@ export function Footer() {
         </p>
       </Container>
     </footer>
+  );
+}
+
+function FooterColumn({
+  children,
+  title,
+}: {
+  children: ReactNode;
+  title: string;
+}) {
+  return (
+    <div className="min-w-0">
+      <h2 className="text-xs font-bold">{title}</h2>
+      <ul className="mt-3 space-y-1.5">{children}</ul>
+    </div>
+  );
+}
+
+function FooterLink({
+  children,
+  href,
+}: {
+  children: ReactNode;
+  href: string;
+}) {
+  return (
+    <Link
+      className="block whitespace-normal break-normal text-xs leading-5 text-blue-100 hover:text-white focus-visible:outline focus-visible:outline-2"
+      href={href}
+    >
+      {children}
+    </Link>
   );
 }
 
