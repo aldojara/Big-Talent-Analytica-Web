@@ -14,6 +14,10 @@ const title = "Aldo Jara Pisconti | Fundador de Big Talent Analytica";
 const description =
   "Conoce a Aldo Jara Pisconti, fundador de Big Talent Analytica, y su experiencia internacional en estrategia, talento, datos, inteligencia artificial y transformación digital.";
 const aboutUrl = `${siteConfig.url}/sobre-mi`;
+const personCanonicalId = "https://aldojarapisconti.com/#person";
+const personCanonicalUrl = "https://aldojarapisconti.com/";
+const organizationId = `${siteConfig.url}/#organization`;
+const websiteId = `${siteConfig.url}/#website`;
 const socialImage = `${siteConfig.url}/images/about/aldo-jara-iese-certificate.jpg`;
 const socialImageAlt = "Aldo Jara Pisconti en IESE Business School";
 
@@ -63,39 +67,69 @@ export const metadata: Metadata = {
   },
 };
 
-const personJsonLd = {
+const structuredDataJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": `${aboutUrl}#person`,
-  name: siteConfig.founder,
-  url: aboutUrl,
-  image: socialImage,
-  description,
-  jobTitle: "Fundador de Big Talent Analytica",
-  knowsAbout: [
-    "Experiencia internacional",
-    "Estrategia empresarial",
-    "Gestión del talento",
-    "People Analytics",
-    "Analítica de datos",
-    "Inteligencia artificial aplicada",
-    "Transformación digital",
-    "Educación",
-    "Mentoría profesional",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personCanonicalId,
+      name: siteConfig.founder,
+      url: personCanonicalUrl,
+      image: socialImage,
+      description,
+      jobTitle: "Fundador y director de Big Talent Analytica",
+      sameAs: [
+        "https://www.linkedin.com/in/aldojarapisconti/",
+        "https://www.youtube.com/@aldopisconti",
+        aboutUrl,
+        "https://aprendefrancesviajando.com/sobre-nosotros/aldo-jara-pisconti/",
+      ],
+      knowsAbout: [
+        "Experiencia internacional",
+        "Estrategia empresarial",
+        "Gestión del talento",
+        "People Analytics",
+        "Analítica de datos",
+        "Inteligencia artificial aplicada",
+        "Transformación digital",
+        "Educación",
+        "Mentoría profesional",
+      ],
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${aboutUrl}#webpage`,
+      url: aboutUrl,
+      name: title,
+      description,
+      inLanguage: "es",
+      isPartOf: {
+        "@id": websiteId,
+      },
+      mainEntity: {
+        "@id": personCanonicalId,
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: siteConfig.name,
+      url: `${siteConfig.url}/`,
+      founder: {
+        "@id": personCanonicalId,
+      },
+      sameAs: ["https://www.tiktok.com/@big.talent.analytica"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: siteConfig.name,
+      url: `${siteConfig.url}/`,
+      publisher: {
+        "@id": organizationId,
+      },
+    },
   ],
-};
-
-const profilePageJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": `${aboutUrl}#webpage`,
-  url: aboutUrl,
-  name: title,
-  description,
-  inLanguage: "es",
-  mainEntity: {
-    "@id": `${aboutUrl}#person`,
-  },
 };
 
 function serializeJsonLd(jsonLd: object) {
@@ -106,11 +140,7 @@ export default function AboutPage() {
   return (
     <>
       <script
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd) }}
-        type="application/ld+json"
-      />
-      <script
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(profilePageJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredDataJsonLd) }}
         type="application/ld+json"
       />
       <AboutHeroSection />

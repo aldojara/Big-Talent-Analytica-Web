@@ -28,6 +28,19 @@ export function AboutHeroSection() {
           <p className="mt-5 max-w-2xl text-sm leading-6 text-[var(--bta-muted)] sm:text-base sm:leading-7">
             {aboutHero.description}
           </p>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--bta-muted)] sm:text-base sm:leading-7">
+            Aldo Jara Pisconti es fundador y director de Big Talent Analytica.
+            Conoce más en su{" "}
+            <a
+              className="font-bold text-[var(--bta-blue)] underline decoration-blue-200 underline-offset-4 hover:text-[var(--bta-blue-deeper)]"
+              href="https://aldojarapisconti.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              sitio personal
+            </a>
+            .
+          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink href={aboutHero.ctas.primary.href}>
               {aboutHero.ctas.primary.label}
